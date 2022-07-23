@@ -1,23 +1,24 @@
 name: GitHub Actions Demo
 on: [push]
-init:
-  runs-on: ubuntu-latest
-  strategy:
-  matrix:
-    node-version: [18.x]
-  steps:
-    - uses: actions/checkout@v3
-    - name: Starting Node.js ${{ matrix.node-version}}
-      uses: actions/setup-node@v3
-      with:
-        node-version: ${{ matrix.node-version}}
-    - name: Install deps
-      run: yarn
-    - name: Build proj
-      run: yarn build
-    - name: yarn start
-      run: yarn start
-    - name: yarn build
-      run: yarn build
-    - name: yarn test
-      run: yarn test
+jobs:
+  init:
+    runs-on: ubuntu-latest
+    strategy:
+    matrix:
+      node-version: [18.x]
+    steps:
+      - uses: actions/checkout@v3
+      - name: Starting Node.js ${{ matrix.node-version}}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version}}
+      - name: Install deps
+        run: yarn
+      - name: Build proj
+        run: yarn build
+      - name: yarn start
+        run: yarn start
+      - name: yarn build
+        run: yarn build
+      - name: yarn test
+        run: yarn test
