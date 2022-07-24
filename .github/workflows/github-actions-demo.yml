@@ -23,4 +23,4 @@ jobs:
       - name: Start proj
         run: npm run start
       - name: Run tests
-        run: npm run test
+        run: npm run test -- Counter
